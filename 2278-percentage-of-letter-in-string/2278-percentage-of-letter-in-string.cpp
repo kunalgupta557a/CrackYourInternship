@@ -8,7 +8,7 @@ public:
                 count++;
             }
         }
-        return (count*100)/s.length();
-        
+        int k= (count*100)/s.length();
+        return k;
     }
 };
