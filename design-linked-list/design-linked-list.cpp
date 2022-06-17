@@ -70,42 +70,23 @@ public:
     }
     // 0 1 2 3
     void deleteAtIndex(int index) {
-        // Return if invalid index
-        if(index>=size || index < 0) {
-            return;
+        if(index>=size) return;
+        if(index==0){
+            Node* tempnode =head;
+            head=head->next;
+            delete tempnode; //freeing up memeory just oppostie keyword of new;
         }
-        // index==0 implies delete at head
-        // Considered separately as we need to update head
-        if (index == 0) {
-            Node* nextNode = head->next;
-            // Always remember to free memory to prevent memory leak
-            delete head;
-            head = nextNode;            
+        else{
+        Node* current = head;
+        Node* delnode = head;
+        for(int i=0;i<index-1;i++){
+            current=current->next;
         }
-        else {
-            Node* current= head;
-            // Run loop till index-1 as we need to insert node at index
-            for(int i=0;i<index-1;++i) {
-                current= current->next;
-            }
-            /* 
-                current --> current->next --> current->next->next
-                                                (next_node)
-                        
-                current --> DELETED --> current->next->next
-                
-                current --> next_node
-            
-            */  
-            Node* nextNode = current->next->next;
-            // Always remember to free memory to prevent memory leak
-            delete current->next;
-            current->next = nextNode;
-        }
-        // Decrease size whenever we delete node
-            size--;
+        Node* nextnode=current->next->next;
+        delete current->next;
+        current->next=nextnode;}
+        --size;
     }
-
     ~MyLinkedList()
     {
         Node *p = head;
