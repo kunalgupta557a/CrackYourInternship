@@ -1,79 +1,74 @@
-class Node {
-  public:
-    int val;
-    Node* next;
-    // Constructor of Node
-    Node(int x): val(x), next(nullptr) {}
-};
-
 class MyLinkedList {
-public:
+private:
+    struct Node{
+        int value;
+        Node* next=NULL; //null neccasary
+        Node(int val){  //parametrized counstructor
+            value=val;
+            next=nullptr;
+        }
+    };
+     
     Node* head;
-    int size;
-    // Constructor
-    MyLinkedList(): head(nullptr), size(0) {}
+    int size; // size of linked list
     
-    /** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
-    int get(int index) {
-        // Return -1 for invalid index
-        if(index>=size || index < 0) {
-            return -1;
-        }
-        Node* current=head;
-        for(int i=0;i<index;++i) {
-            current= current->next;
-        }
-        return current->val;
+    
+public:
+    
+   
+    
+
+    MyLinkedList() {  //counstructor used for automatically implementing or calling something
+        
+        head=nullptr;
+        size=0;
     }
     
-    /** Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list. */
-    void addAtHead(int val) {
-        addAtIndex(0, val);
-    }
-    
-    /** Append a node of value val to the last element of the linked list. */
-    void addAtTail(int val) {
-        addAtIndex(size, val);       
-    }
-    
-    /** Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted. */
-    void addAtIndex(int index, int val) {
-        // Return if invalid index
-        if (index>size || index < 0) {
-            return;
-        }
-        Node* current= head;
-        Node* new_node = new Node(val);
-        // index == 0 implies insert at head
-        // Considered separately as we need to update head
-        if (index == 0) {
-            new_node->next = current;
-            // Update head
-            head = new_node;
-        }
-        else {
-            // Run loop till index-1 as we need to insert node at index
-            for(int i=0;i<index-1;++i) {
-                current= current->next;
+    int get(int index) { 
+        if(index>=size) return -1;
+        else{
+            Node* currentnode = head;
+            for(int i=0;i<index;i++){
+                currentnode=currentnode -> next;
+                
             }
-            /* 
-                current --> current->next
-                            /
-                        new_node
-                        
-                current    current->next
-                      \      /
-                        new_node           
-            
-            */            
-            new_node->next = current->next;
-            current->next = new_node;
+            return currentnode->value;
         }
-        // Increase size whenever we insert node
-        size++;
+        
+    }
+    // iterate till the node doesnt come
+    
+    void addAtHead(int val) {
+        Node* first = new Node(val);
+        first->next=head;
+        head=first;
+        ++size;
     }
     
-    /** Delete the index-th node in the linked list, if the index is valid. */
+    void addAtTail(int val) {
+        addAtIndex(size,val);
+    }
+    
+    void addAtIndex(int index, int val) {
+        if(index>size) return;
+        Node* newnode = new Node(val);  //allocating memory
+        Node* current = head; // not allocating memory
+        
+        if(index==0) addAtHead(val);
+        
+        else
+        {
+            for(int i=0;i<index-1;i++){
+                current=current -> next;
+            }
+            newnode->next=current->next;
+            current->next=newnode;
+            ++size;
+            
+            }
+        
+    }
+    // 0 1 2 3
     void deleteAtIndex(int index) {
         // Return if invalid index
         if(index>=size || index < 0) {
@@ -110,11 +105,7 @@ public:
         // Decrease size whenever we delete node
             size--;
     }
-    /*
-        Default destructor only deletes head and size (allocated by constructor)
-        We need destructor to free the memory used by all individual nodes
-    */
-    // Destructor
+
     ~MyLinkedList()
     {
         Node *p = head;
