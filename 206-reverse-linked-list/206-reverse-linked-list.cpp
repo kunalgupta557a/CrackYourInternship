@@ -20,6 +20,6 @@ public:
             prev = curr;
             curr = nextptr;
         }
-        return prev;
+        return prev; // here prev is pointing to head so we are returning it as when giving linked list the head was given inside reverselist fn.
     }
 };
