@@ -33,6 +33,9 @@ public:
     }
 };
 /*
-
+another approach is making two pointers 
+fast=fast->next->next;
+slow=slow->next;
+till fast doesnlt beceome null
 
 */
