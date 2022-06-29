@@ -3,7 +3,7 @@ public:
     void setZeroes(vector<vector<int>>& nums) {
         int m=nums.size();
         int n=nums[0].size();
-        set<int> rows,col;
+        set<int> rows,col; // using set to see where we need rows and coloumns
         for(int i=0;i<m;i++){
             for(int z=0;z<n;z++){
                if(nums[i][z]==0){
