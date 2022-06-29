@@ -20,7 +20,7 @@ public:
             fast=fast->next;
         }
         if(fast == NULL){
-            return head->next;
+            return head->next; //can't return fast here
         }
         while(fast->next!=NULL){
             fast=fast->next;
@@ -28,6 +28,6 @@ public:
         }
         
         slow->next=slow->next->next;
-        return temp;
+        return head;
     }
 };
