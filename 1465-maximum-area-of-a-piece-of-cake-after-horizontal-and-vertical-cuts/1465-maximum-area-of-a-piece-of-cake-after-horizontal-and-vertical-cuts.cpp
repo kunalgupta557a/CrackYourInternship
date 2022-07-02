@@ -15,7 +15,7 @@ public:
             }
         
         if(w-ver[ver.size()-1]>vdiff) vdiff=w-ver[ver.size()-1];
-        
+        //or instead of this u can do push_back to last cut or h or w so ver.push_back(v) at starting so not write this
         if(h-hor[hor.size()-1]>hdiff) hdiff=h-hor[hor.size()-1];
         
        long long int x= (hdiff * vdiff) %M; 
