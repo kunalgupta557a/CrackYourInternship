@@ -7,7 +7,7 @@ public:
         for(int i=1;i<n;i++){
             curdiff=nums[i]-nums[i-1];
             
-            if((curdiff>0 && prevdiff<=0) || (curdiff<0 && prevdiff>=0)){
+            if((curdiff>0 && prevdiff<=0) || (curdiff<0 && prevdiff>=0)){ //curdiff cant be 0
                 ans++;
                 prevdiff=curdiff;
             }
