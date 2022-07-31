@@ -15,13 +15,15 @@ public:
         
         ListNode* fast = head;
         ListNode* slow = head;
-        ListNode* temp =head;
+        
         for(int i=0;i<n;i++){
             fast=fast->next;
         }
         if(fast == NULL){
             return head->next; //can't return fast here
         }
+        
+        
         while(fast->next!=NULL){
             fast=fast->next;
             slow=slow->next;
