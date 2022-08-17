@@ -11,12 +11,14 @@
  */
 class Solution {
 public:
-    vector<int>ans;
-vector<int> preorderTraversal(TreeNode* root) {
+    vector<int> ans; // declared it outside as it will then not be declared again everytime during recursion
+    vector<int> preorderTraversal(TreeNode* root) {
+       
+        
         if(root == NULL) return ans;
         ans.push_back(root->val);
-        preorderTraversal(root->left);
-        preorderTraversal(root->right);
-    return ans;
+        preorderTraversal(root -> left);
+        preorderTraversal(root -> right);
+        return ans;
     }
 };
