@@ -11,33 +11,12 @@
  */
 class Solution {
 public:
-    void preorderTraversalHelper(TreeNode* root, vector<int> &res) {
-	if(root)
-	{
-		res.push_back(root -> val);           
-
-		if(root -> left)
-			preorderTraversalHelper(root -> left, res);
-
-		if(root -> right)
-			preorderTraversalHelper(root -> right, res);
-	}
-
-	return;
-}
-
-
-vector<int> preorderTraversal(TreeNode* root) 
-{   
-	vector<int> res;
-	preorderTraversalHelper(root, res) ;
-	return res;
-}
+    vector<int>ans;
+vector<int> preorderTraversal(TreeNode* root) {
+        if(root == NULL) return ans;
+        ans.push_back(root->val);
+        preorderTraversal(root->left);
+        preorderTraversal(root->right);
+    return ans;
+    }
 };
-/*
-pre root left right
-recursive
-
-
-
-*/
