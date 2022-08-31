@@ -5,7 +5,7 @@ public:
         int n=nums[0].size();
         set<int> rows,col; // using set to see where we need rows and coloumns
         
-//why can;t we use map instead of set bcoz then coloumn value in map would not be unique as map[i]=j; so i would be unique but not j
+//why can;t we use map instead of set bcoz then coloumn value in map would not be unique as map[i]=j; so i would be unique but not j so becoz of that there will be repeatation in making ceratin grids 0;
         for(int i=0;i<m;i++){
             for(int z=0;z<n;z++){
                if(nums[i][z]==0){
