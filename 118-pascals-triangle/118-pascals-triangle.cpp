@@ -1,8 +1,4 @@
 class Solution {
-    /*
-    1
-    
-    */
 public:
     vector<vector<int>> generate(int num) {
         vector<vector<int>> ans;
@@ -20,11 +16,3 @@ public:
         return ans;
     }
 };
-/*
-1
-1 1
-1 2 1
-1 3 3 1
-
-
-*/
