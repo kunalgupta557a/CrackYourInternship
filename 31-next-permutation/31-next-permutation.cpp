@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //algortihmnic answer
     void nextPermutation(vector<int>& a) {
         int index1=-1;
         for(int i=a.size()-2;i>=0;i--){
@@ -8,8 +9,8 @@ public:
                     break;
                 }
         }
-        
-        if(index1==-1){
+        //if index1=-1 then a is in descending order so reverse of it will be ans
+        if(index1==-1){    
             reverse(a.begin(),a.end());
             return;
         }
