@@ -8,5 +8,5 @@ public:
         }
     return best;
     }
-    
+    //it will work for negetive no as default value of best is int min
 };
