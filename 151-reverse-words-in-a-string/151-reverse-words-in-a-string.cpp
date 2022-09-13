@@ -25,7 +25,7 @@ public:
     }
 };
 
-//stack
+//can be done using stack also
 //old code
 /*
 string reverseWords(string s) {
