@@ -1,6 +1,32 @@
 class Solution {
 public:
     string reverseWords(string s) {
+       while(s[0]==' ') s.erase(s.begin());
+        while(s[s.size()-1]==' ') s.erase(s.end()-1);
+        
+        reverse(s.begin(),s.end());
+        int beg=0;
+        
+        for(int i=0;i<s.size();i++){
+            if(s[i]==' '){
+                if(s[i+1]==' '){
+                    s.erase(s.begin()+i+1);
+                    i--;
+                   continue;}
+                reverse(s.begin()+beg,s.begin()+i);
+                beg=i+1;
+            }   
+            if(i==s.size()-1) reverse(s.begin()+beg,s.end());
+        }
+        
+       return s; 
+    }
+};
+
+//stack
+//old code
+/*
+string reverseWords(string s) {
         string temp;
         string ans;
         bool more=false;
@@ -39,4 +65,4 @@ public:
         
         return ans;
     }
-};
+*/
