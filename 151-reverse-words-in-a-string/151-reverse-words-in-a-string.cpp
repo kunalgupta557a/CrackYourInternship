@@ -16,9 +16,9 @@ public:
                     i--;
                    continue;}
                 reverse(s.begin()+beg,s.begin()+i); // mistake here as s.begin()+i-1
-                beg=i+1;
+                beg=i+1;  // changing value to index of begingin of new word
             }   
-            if(i==s.size()-1) reverse(s.begin()+beg,s.end());
+            if(i==s.size()-1) reverse(s.begin()+beg,s.end()); // for last word that left
         }
         
        return s; 
