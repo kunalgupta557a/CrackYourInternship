@@ -1,6 +1,8 @@
 class Solution {
 public:
     string reverseWords(string s) {
+        
+    //trim trailing and ending 0
        while(s[0]==' ') s.erase(s.begin());
         while(s[s.size()-1]==' ') s.erase(s.end()-1);
         
