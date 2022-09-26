@@ -11,31 +11,15 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        ListNode * first=head;  //created a pointer for it
-        ListNode *last=head;
-        int count=0;
-        while(last->next != NULL){
-            last=last->next;
-            count++;
+        ListNode* fast=head;
+        ListNode* slow=head;
+        while(fast && fast->next){
+            fast=fast->next;
+            if(fast){
+            fast=fast->next;}
+            slow=slow->next;
+           
         }
-        
-            if(count%2 ==0){
-               for(int i=0;i<count/2;i++){
-                   first=first->next;
-               } }
-        else{
-            for(int i=0;i<=count/2;i++){
-                   first=first->next;
-               }
-        }
-            return first;        
-        
+        return slow;
     }
 };
-/*
-another approach is making two pointers 
-fast=fast->next->next;
-slow=slow->next;
-till fast doesnlt beceome null
-
-*/
