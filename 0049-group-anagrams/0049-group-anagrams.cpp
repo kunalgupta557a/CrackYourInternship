@@ -2,12 +2,16 @@ class Solution {
 public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
         vector<vector<string>> ans;
+        
         if(strs.size()<2) { ans.push_back(strs);
                           return ans;}
         vector<string> s(strs.begin(),strs.end());
+        
+        //counting sort to sort the word
         for(int i=0;i<strs.size();i++){
             sort(strs[i].begin(),strs[i].end());
         }
+        
         map<int,bool> m;
         
         for(int i=0;i<strs.size()-1;i++){
