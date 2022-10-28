@@ -1,15 +1,17 @@
 class Solution {
 public:
     long long minCost(vector<int>& nums, vector<int>& cost) {
-        
+        //storing nums and cost in pair cant use map as problem incase of duplicate and in multimap cant use subscript
         vector<pair<int,int>> p;
         
         for(int i=0;i<nums.size();i++){
             p.push_back({nums[i],cost[i]});
         }
         
-        sort(p.begin(),p.end());
+        sort(p.begin(),p.end());//sorting based on nums
+        
         long long int sum=0;
+        
         for(int i=0;i<nums.size();i++){
             sum+=cost[i];
         }
@@ -25,6 +27,7 @@ public:
                 break;
             }
         }
+        
         long long int ans=0;
         for(int i=0;i<nums.size();i++){
             ans+=abs((nums[i]-target)*cost[i]);
